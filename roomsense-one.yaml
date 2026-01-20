@@ -11,7 +11,7 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "demo123!"
+  password: !secret api_password
   on_client_connected:
     then:
       # Home Assistant connected -> GREEN
@@ -44,12 +44,11 @@ api:
                 blue: 0%
 ota:
   - platform: esphome
-    password: "demo123!"
+    password: !secret ota_password
 
 wifi:
-  ssid: "MDv2"
-  password: "Seinodernichtsein"
-
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "lxroom_buero"
