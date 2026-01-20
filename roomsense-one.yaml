@@ -47,8 +47,8 @@ ota:
     password: "demo123!"
 
 wifi:
-  ssid: "xxx"
-  password: "xxxxxxxx"
+  ssid: "MDv2"
+  password: "Seinodernichtsein"
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
@@ -113,7 +113,7 @@ sensor:
     pressure:
       id: bmp280_pressure
       name: "BMP280 Pressure"
-    address: 0x76
+    address: 0x77
     update_interval: 30s
   - platform: template
     name: "BMP280 Altitude"
