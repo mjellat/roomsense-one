@@ -1,5 +1,5 @@
 esphome:
-  name: roomsens-one-office
+  name: roomsens-one-${device_node}
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -11,7 +11,8 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
+  encryption:
+    key: !secret api_encryption_key
   on_client_connected:
     then:
       # Home Assistant connected -> GREEN
@@ -75,6 +76,7 @@ wifi:
 
 captive_portal:
 
+
 # CHANGE THIS PIN to the onboard RGB LED data pin
 substitutions:
   rgb_pin: GPIO8   # <-- common on many ESP32 boards; adjust for your board
@@ -97,27 +99,4 @@ i2c:
   scan: true
   frequency: 100kHz
 
-sensor:
-  - platform: aht10
-    temperature:
-      name: "AHT20 Temperature"
-    humidity:
-      name: "AHT20 Humidity"
-    address: 0x38
-    update_interval: 30s
-  - platform: bmp280_i2c
-    id: bmp280_sensor
-    temperature:
-      name: "BMP280 Temperature"
-    pressure:
-      id: bmp280_pressure
-      name: "BMP280 Pressure"
-    address: 0x77
-    update_interval: 30s
-  - platform: template
-    name: "BMP280 Altitude"
-    unit_of_measurement: "m"
-    icon: "mdi:image-filter-hdr"
-    update_interval: 30s
-    lambda: |-
-      return 44330.0 * (1.0 - pow(id(bmp280_pressure)->state / 1013.25, 0.1903));
+

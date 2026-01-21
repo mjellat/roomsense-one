@@ -1,0 +1,7 @@
+substitutions:
+  device_node: "schlafzimmer"
+  friendly_name: "Schlafzimmer"
+
+packages:
+  roomsense_one: !include ../common/roomsense-one.yaml
+  sensors: !include ../common/sensors.yaml

@@ -1,0 +1,7 @@
+substitutions:
+  device_node: "office"
+  friendly_name: "Office"
+
+packages:
+  roomsense_one: !include ../common/roomsense-one.yaml
+  sensors: !include ../common/sensors.yaml
